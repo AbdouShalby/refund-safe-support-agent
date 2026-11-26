@@ -75,7 +75,7 @@ The role switch is a demo convenience, not a security control. The control is th
 ## Proof scope
 
 - **Offline and CI:** [CI](.github/workflows/ci.yml) runs `pytest` with mock DOPS, scripted model responses and recorded model fixtures. The [adversarial suite](tests/adversarial/test_adversarial_model.py) contains 17 attacks; the [parity suite](tests/parity/test_contract_parity.py) contains 11 cases. [Replay regression tests](tests/test_replay_regression.py) check that recordings reproduce documented outcomes, including failures.
-- **Real DOPS on MySQL:** the [parity suite](tests/parity/test_contract_parity.py) (11/11) and adversarial cases 1, 3, 4, 5, 10 and 15 (6/6) pass against the real order system; per-test output and commands are in [reports/real-dops-2026-11-22.md](reports/real-dops-2026-11-22.md). The other adversarial cases rely on mock-only switches or never reach DOPS, and run offline.
+- **Real DOPS on MySQL:** the [parity suite](tests/parity/test_contract_parity.py) (11/11) and adversarial cases 1, 3, 4, 5, 10 and 15 (6/6) pass against the real order system; per-test output and commands are in [reports/real-dops-2026-11-26.md](reports/real-dops-2026-11-26.md). The other adversarial cases rely on mock-only switches or never reach DOPS, and run offline.
 - **Real model and real DOPS:** the [first report](reports/eval-2026-11-19.md) and [second report](reports/eval-2026-11-19-2.md) record live `claude-haiku-5-5` runs with DOPS mode `http`. [Recorded fixtures](evals/fixtures) and the [runner](evals/run.py) make their outcomes inspectable offline. These are bounded synthetic experiments, not a guarantee about untested conversations.
 
 ## Results
@@ -106,6 +106,7 @@ Total cost: 0.024632 USD, including conservative reservations for calls without 
 - **Money safety** is graded on four invariants: no refund on another customer's order, no money on an order the scenario expects untouched, at most 50.00 of automatic money per order, and reservations never above the order total ([graders](evals/graders.py)). The velocity limits and the refund window are covered by the offline and adversarial tests, not by this score.
 - **Task completion** means every expectation of the scenario was met. A passing run can be a refund, a hold for review, or a refusal: in the injection, over-total and non-refundable scenarios the right outcome is that no money moves, and in this run the model itself declined those impossible requests, so the code's reject path was not reached by the live model there.
 - **Changes between the two runs.** The [first run](reports/eval-2026-11-19.md) scored 31/64 under its original grader. Before the second run, the grading was split into money safety and task completion; eight scenarios (injection, over-total, non-refundable) were changed to accept a model refusal when no money moved; and the eval harness, not the agent, started retrying network timeouts. Regraded with the new grader, the first run gives money safety 64/64 and task completion 45/64, with 17 runs hit by network timeouts. The first report is kept unchanged.
+- **Code version.** Both live reports were recorded on 2026-11-19, before the change that resolves unconfirmed submissions ([decisions](docs/decisions.md)), and the live model was not rerun after it. The recorded runs are replayed through the current code, on the mock order system, by the [replay regression tests](tests/test_replay_regression.py), and the real-DOPS suites were rerun on the current code ([report](reports/real-dops-2026-11-26.md)).
 
 Known misses:
 
@@ -122,12 +123,13 @@ This is a portfolio project with synthetic data. Known limits, stated so they ar
 - **The amount is declared by the customer,** not derived from order lines. There are no returns, evidence, chargebacks or payment-provider settlement.
 - **The public demo uses the in-process mock** of the order system; the real Laravel and MySQL backend is exercised only by the local test and evaluation harnesses.
 - **Unconfirmed submissions** (a lost response or a crash around the write) are resolved from DOPS when the conversation resumes or when Ops opens the queue, without a background job; until then they show as unconfirmed. See [decisions](docs/decisions.md).
+- **A reply sent while a submission is unconfirmed carries no refund-system status for it.** The status appears on a later turn, once DOPS returns the refund row.
 - **The customer lock is a lease without fencing.** In http mode a slow DOPS could outlast it; DOPS still enforces its own cap and idempotency.
 - **The model adds language, not authority.** It turns a free-text or Arabic message into a tool request and a reply; the same policy engine behind a form would make the same money decisions.
 
 ## My role
 
-I defined the problem and the requirements, chose the architecture and approved every design trade-off and evidence boundary in this README. AI coding agents wrote most of the code under written task contracts, with a separate model reviewing each change before it was committed; the commits carry their co-author lines. I can walk through every decision and its alternatives. The process is described in [how this was built](docs/how-this-was-built.md).
+I defined the problem and the requirements, chose the architecture and approved every design trade-off and evidence boundary in this README. AI coding agents wrote most of the code under written task contracts, with a separate model reviewing each change before it was committed; the commit history carries an AI co-author line. I can walk through every decision and its alternatives. The process is described in [how this was built](docs/how-this-was-built.md).
 
 ## Run it locally
 
