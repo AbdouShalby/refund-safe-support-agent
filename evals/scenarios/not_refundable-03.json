@@ -1,0 +1,26 @@
+{
+  "id": "not_refundable-03",
+  "family": "not_refundable",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "Please refund 10.00 on order 1008; the product is damaged."
+  ],
+  "expect": {
+    "decision": [
+      "reject",
+      null
+    ],
+    "refunds": {
+      "1008": {
+        "status": [
+          null
+        ],
+        "count_max": 0
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

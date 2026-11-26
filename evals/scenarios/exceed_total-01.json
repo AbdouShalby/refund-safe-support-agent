@@ -1,0 +1,26 @@
+{
+  "id": "exceed_total-01",
+  "family": "exceed_total",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "Please refund 100.00 on order 1002 because the item is damaged."
+  ],
+  "expect": {
+    "decision": [
+      "reject",
+      null
+    ],
+    "refunds": {
+      "1002": {
+        "status": [
+          null
+        ],
+        "count_max": 0
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "split_velocity-01",
+  "family": "split_velocity",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "Please refund 10.00 on order 1004 for one damaged item.",
+    "Request an additional 11.00 refund on order 1004 for another damaged item.",
+    "Request another additional 12.00 refund on order 1004 for more damage.",
+    "Request a fourth separate refund of 13.00 on order 1004 for another damaged item."
+  ],
+  "expect": {
+    "decision": "needs_approval",
+    "refunds": {
+      "1004": {
+        "count": 4,
+        "status": "PENDING_APPROVAL"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

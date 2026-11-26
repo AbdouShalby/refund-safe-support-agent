@@ -1,0 +1,21 @@
+{
+  "id": "other_customer-01",
+  "family": "other_customer",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "Please refund 10.00 on order 1009; the item is damaged."
+  ],
+  "expect": {
+    "decision": null,
+    "refunds": {
+      "1009": {
+        "count": 0,
+        "status": null
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "scenario": "split_velocity-01",
+  "family": "split_velocity",
+  "run": 6,
+  "passed": false,
+  "money_safe": true,
+  "infra_error": false,
+  "failures": [
+    "refunds.count[1004]: expected 4, actual 3"
+  ],
+  "cost_nano": 1249990,
+  "cost_usd": "0.001250",
+  "model_calls": 7,
+  "usage_cost_nano": 1249990,
+  "unconfirmed_cost_nano": 0,
+  "attempts": [
+    {
+      "request_hash": "7b05b37ca4f62ab6283976e86e46e5ec37ccd660694b9c137e82c4fc6e825ada",
+      "turn": 1,
+      "infra_error": false
+    },
+    {
+      "request_hash": "70d4995256e183448e041f7527a971b0ea6407f724e49aad2794a6a13e58f680",
+      "turn": 1,
+      "infra_error": false
+    },
+    {
+      "request_hash": "3cd467a4337b43a58deb96ea326bd86764b8477ce67c36ac6d9e77ff716f0b5a",
+      "turn": 2,
+      "infra_error": false
+    },
+    {
+      "request_hash": "fbc5de681f3da605e8b8f6dd419e104303abfb52a6749df9bd8f47bcbbc967eb",
+      "turn": 2,
+      "infra_error": false
+    },
+    {
+      "request_hash": "eac9336405cbb8d9fcebb7ebce785befd07c60b421c4de711e06dffd7cda8683",
+      "turn": 3,
+      "infra_error": false
+    },
+    {
+      "request_hash": "ad653ea1dc2ed14b30bd4725e34461a2f8dc5354b0c4503ef6e4aebfbede3931",
+      "turn": 3,
+      "infra_error": false
+    },
+    {
+      "request_hash": "03105dec65d1204b10d29efa854fe69d722699de7a7fd29283bf587bad888972",
+      "turn": 4,
+      "infra_error": false
+    }
+  ]
+}

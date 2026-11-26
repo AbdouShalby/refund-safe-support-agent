@@ -1,0 +1,174 @@
+{
+  "name": "large-refund-review",
+  "title": "Large refund held, then approved by Ops",
+  "language": "en",
+  "customer": "Customer A",
+  "steps": [
+    {
+      "role": "customer",
+      "text": "The goods are damaged. Please refund 450.00 on order 1003.",
+      "events": [],
+      "refunds": []
+    },
+    {
+      "role": "agent",
+      "text": "Your refund request for 450.00 on order 1003 has been submitted, but it is awaiting human review. The amount is above the automatic approval limit, so a reviewer will need to assess it. I can't confirm when or whether it will be approved until the review is complete.\n\nRefund system status:\n- 1003 / 450.00: awaiting human review",
+      "events": [
+        {
+          "ts": "2026-11-19T17:19:10.285049+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "customer",
+          "type": "customer_message",
+          "data": {
+            "length": 58,
+            "language": "en"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.285049+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "model",
+          "type": "model_call",
+          "data": {
+            "usage": {
+              "input": 99,
+              "cache_write": 0,
+              "cache_read": 1267,
+              "output": 249
+            },
+            "cost_nano": 147070,
+            "stop_reason": "tool_use"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.285049+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "model",
+          "type": "tool_call",
+          "data": {
+            "name": "request_refund",
+            "input": {
+              "order_id": 1003,
+              "amount": "450.00",
+              "reason": "[redacted]"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.286287+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "get_order",
+            "status": "2xx"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.286287+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "list_order_refunds",
+            "status": "2xx"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.286287+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "customer_refunds_since",
+            "status": "2xx"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.286287+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "policy",
+          "type": "policy_decision",
+          "data": {
+            "facts": {
+              "order_status": "PAID",
+              "order_total": "450.00",
+              "reserved": "0.00",
+              "order_age_days": "3",
+              "refunds_on_order_24h": "0",
+              "customer_auto_count_24h": "0",
+              "customer_auto_amount_24h": "0.00"
+            },
+            "outcome": "needs_approval",
+            "reasons": [
+              "OVER_AUTO_LIMIT",
+              "VELOCITY_AMOUNT"
+            ]
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.287286+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "create_refund",
+            "status": "PENDING_APPROVAL"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.287286+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "system",
+          "type": "refund_result",
+          "data": {
+            "refund_id": 2,
+            "status": "PENDING_APPROVAL",
+            "replayed": false
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:10.287789+00:00",
+          "trace_id": "t-58c985886f44e5d2",
+          "conversation_id": "c-0ff9f3165f73a4f3",
+          "actor": "model",
+          "type": "model_call",
+          "data": {
+            "usage": {
+              "input": 305,
+              "cache_write": 0,
+              "cache_read": 1267,
+              "output": 84
+            },
+            "cost_nano": 85170,
+            "stop_reason": "end_turn"
+          }
+        }
+      ],
+      "refunds": [
+        {
+          "refund_id": 2,
+          "status": "PENDING_APPROVAL",
+          "order_id": 1003,
+          "amount": "450.00"
+        }
+      ]
+    }
+  ],
+  "ops": [
+    {
+      "action": "approve",
+      "refund_id": 2,
+      "status_after": "SUCCEEDED"
+    }
+  ]
+}

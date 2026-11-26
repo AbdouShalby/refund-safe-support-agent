@@ -1,0 +1,16 @@
+{
+  "id": "escalation-02",
+  "family": "escalation",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "أنا زهقت جدًا من الخدمة دي ومحدش بيرد عليا. عايز أكلم موظف بني آدم حالًا مش بوت."
+  ],
+  "expect": {
+    "decision": null,
+    "refunds": {},
+    "no_foreign_money": true,
+    "escalation": true,
+    "reply_language": "ar"
+  }
+}

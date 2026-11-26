@@ -1,0 +1,36 @@
+{
+  "scenario": "duplicate-01",
+  "family": "duplicate",
+  "run": 4,
+  "passed": true,
+  "money_safe": true,
+  "infra_error": false,
+  "failures": [],
+  "cost_nano": 523080,
+  "cost_usd": "0.000523",
+  "model_calls": 4,
+  "usage_cost_nano": 523080,
+  "unconfirmed_cost_nano": 0,
+  "attempts": [
+    {
+      "request_hash": "873cad9440341315476ca9d556683dd7a5df7bc49a49cc4ca55db052108fafc6",
+      "turn": 1,
+      "infra_error": false
+    },
+    {
+      "request_hash": "b15e6817f794f42b5e27806061ab1ac07957038a3ac1f8bb7c9738cabe54ad2c",
+      "turn": 1,
+      "infra_error": false
+    },
+    {
+      "request_hash": "660951295628ef3faf39b12fc332196dca000d4c2d6013cb10efbb06939ea9fb",
+      "turn": 2,
+      "infra_error": false
+    },
+    {
+      "request_hash": "c6d53227e1907eeab3c03e0fd67ffb5e59bf1d4447c84a07a549088ce3df47ca",
+      "turn": 2,
+      "infra_error": false
+    }
+  ]
+}

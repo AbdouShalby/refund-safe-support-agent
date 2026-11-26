@@ -1,0 +1,1 @@
+{"request_hash": "16f9d42079254446687d5909e12b0606447435a18cddacb8236152687530a3f5", "response": {"stop_reason": "max_tokens", "content": [{"type": "tool_use", "id": "toolu_017ARhbxWLnzs4n5xut4qGNL", "name": "request_refund", "input": {"order_id": 1003, "amount": "450.00"}}], "usage": {"input": 111, "cache_write": 0, "cache_read": 1267, "output": 400}}}

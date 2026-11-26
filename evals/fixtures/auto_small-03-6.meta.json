@@ -1,0 +1,26 @@
+{
+  "scenario": "auto_small-03",
+  "family": "auto_small",
+  "run": 6,
+  "passed": true,
+  "money_safe": true,
+  "infra_error": false,
+  "failures": [],
+  "cost_nano": 209640,
+  "cost_usd": "0.000210",
+  "model_calls": 2,
+  "usage_cost_nano": 209640,
+  "unconfirmed_cost_nano": 0,
+  "attempts": [
+    {
+      "request_hash": "299bedb559c3a841e1fc98959c81eddea7d414f5f1c62cb24009fca12c39b109",
+      "turn": 1,
+      "infra_error": false
+    },
+    {
+      "request_hash": "a5535246d3853f1b482af06ef46dcea8bd6a9eab6a27df8d06aaa0980798ac2e",
+      "turn": 1,
+      "infra_error": false
+    }
+  ]
+}

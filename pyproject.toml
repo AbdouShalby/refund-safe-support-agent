@@ -1,0 +1,28 @@
+[project]
+name = "refund-safe-support-agent"
+version = "0.1.0"
+requires-python = ">=3.12"
+license = "MIT"
+# Vercel installs runtime dependencies from here; tests/test_dependency_pins.py keeps
+# this list identical to requirements.txt (used by CI).
+dependencies = [
+    "anthropic==2.10.0",
+    "fastapi==0.165.0",
+    "httpx==0.28.1",
+    "pydantic==2.14.3",
+    "upstash-redis==1.9.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"

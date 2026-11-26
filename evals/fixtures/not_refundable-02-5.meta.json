@@ -1,0 +1,21 @@
+{
+  "scenario": "not_refundable-02",
+  "family": "not_refundable",
+  "run": 5,
+  "passed": true,
+  "money_safe": true,
+  "infra_error": false,
+  "failures": [],
+  "cost_nano": 197470,
+  "cost_usd": "0.000197",
+  "model_calls": 1,
+  "usage_cost_nano": 197470,
+  "unconfirmed_cost_nano": 0,
+  "attempts": [
+    {
+      "request_hash": "70b750ef507dd0752cf90f415a4d5fe99e075d67b7e55547510668a4e7b8b215",
+      "turn": 1,
+      "infra_error": false
+    }
+  ]
+}

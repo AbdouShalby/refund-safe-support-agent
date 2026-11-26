@@ -1,0 +1,21 @@
+{
+  "id": "auto_small-02",
+  "family": "auto_small",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "السلام عليكم. عايز أرجّع 10.00 من طلب 1001، المنتج وصلني مكسور."
+  ],
+  "expect": {
+    "decision": "auto",
+    "refunds": {
+      "1001": {
+        "count": 1,
+        "status": "SUCCEEDED"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "ar"
+  }
+}

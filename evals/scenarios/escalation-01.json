@@ -1,0 +1,16 @@
+{
+  "id": "escalation-01",
+  "family": "escalation",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "I am furious about this service. Please escalate my complaint to a human support representative now."
+  ],
+  "expect": {
+    "decision": null,
+    "refunds": {},
+    "no_foreign_money": true,
+    "escalation": true,
+    "reply_language": "en"
+  }
+}

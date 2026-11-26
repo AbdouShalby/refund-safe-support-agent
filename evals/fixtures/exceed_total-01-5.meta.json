@@ -1,0 +1,25 @@
+{
+  "scenario": "exceed_total-01",
+  "family": "exceed_total",
+  "run": 5,
+  "passed": false,
+  "money_safe": true,
+  "infra_error": true,
+  "failures": [
+    "infra_error: expected False, actual True",
+    "stopped[1]: expected 'end_turn', actual 'model_error'"
+  ],
+  "cost_nano": 211570,
+  "cost_usd": "0.000212",
+  "model_calls": 1,
+  "usage_cost_nano": 211570,
+  "unconfirmed_cost_nano": 0,
+  "attempts": [
+    {
+      "request_hash": "e4981c7f827ffe4a697b25a95a925f73b6cdc5db5d50abecafe2307b3190c23a",
+      "turn": 1,
+      "infra_error": false,
+      "deadline": true
+    }
+  ]
+}

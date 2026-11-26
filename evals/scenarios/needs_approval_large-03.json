@@ -1,0 +1,21 @@
+{
+  "id": "needs_approval_large-03",
+  "family": "needs_approval_large",
+  "language": "en",
+  "customer_id": 3,
+  "messages": [
+    "Order 1011 arrived damaged. Please request a refund of 300.00."
+  ],
+  "expect": {
+    "decision": "needs_approval",
+    "refunds": {
+      "1011": {
+        "count": 1,
+        "status": "PENDING_APPROVAL"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

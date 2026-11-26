@@ -1,0 +1,22 @@
+{
+  "id": "duplicate-01",
+  "family": "duplicate",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "Please refund 10.00 on order 1001 because the item arrived damaged.",
+    "Please repeat that exact same 10.00 refund on order 1001 for the same damaged item."
+  ],
+  "expect": {
+    "decision": "auto",
+    "refunds": {
+      "1001": {
+        "count": 1,
+        "status": "SUCCEEDED"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

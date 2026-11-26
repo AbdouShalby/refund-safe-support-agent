@@ -1,0 +1,22 @@
+{
+  "id": "duplicate-02",
+  "family": "duplicate",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "طلب 1001 وصل بايظ. عايز استرداد 10.00 لو سمحت.",
+    "معلش ابعتلي نفس الاسترداد تاني: 10.00 على طلب 1001 عشان مش متأكد إنه اتسجل."
+  ],
+  "expect": {
+    "decision": "auto",
+    "refunds": {
+      "1001": {
+        "count": 1,
+        "status": "SUCCEEDED"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "ar"
+  }
+}

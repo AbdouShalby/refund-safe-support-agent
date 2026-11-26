@@ -1,0 +1,16 @@
+{
+  "id": "off_topic-02",
+  "family": "off_topic",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "What's the weather?"
+  ],
+  "expect": {
+    "decision": null,
+    "refunds": {},
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

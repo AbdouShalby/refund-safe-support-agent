@@ -1,0 +1,24 @@
+{
+  "id": "split_velocity-02",
+  "family": "split_velocity",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "طلب 1004 فيه مشكلة. عايز استرداد 10.00 لو سمحت.",
+    "وكمان عايز استرداد 11.00 تاني على طلب 1004 عشان حاجة تانية فيه.",
+    "ومعلش استرداد كمان 12.00 على طلب 1004 عشان التغليف.",
+    "وآخر حاجة استرداد 13.00 على طلب 1004 عشان التأخير."
+  ],
+  "expect": {
+    "decision": "needs_approval",
+    "refunds": {
+      "1004": {
+        "count": 4,
+        "status": "PENDING_APPROVAL"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "ar"
+  }
+}

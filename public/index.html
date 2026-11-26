@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:">
+  <meta name="color-scheme" content="light dark">
+  <title>Refund-safe support agent</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#customer-panel">Skip to demo</a>
+  <header class="site-header">
+    <div><p class="eyebrow">Portfolio project · synthetic data</p><h1>Refund-safe support agent</h1></div>
+    <div class="header-links"><a href="https://github.com/AbdouShalby/refund-safe-support-agent">GitHub repo <span aria-hidden="true">↗</span></a><p class="privacy">Do not enter real personal data</p></div>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="intro-title"><div><p class="eyebrow">A visible boundary around money</p><h2 id="intro-title">The model asks. The code decides.</h2><p>Follow a refund from conversation to policy check to system result. A human reviews requests that need approval.</p></div><button id="start-live" type="button">Start live demo</button></section>
+    <section class="controls" aria-label="Demo controls">
+      <div class="field"><label for="customer">Customer</label><select id="customer"><option value="1">Customer A</option><option value="2">Customer B</option><option value="3">Customer C</option></select></div>
+      <div class="field"><label for="role">Simulated role switch (no real login)</label><select id="role"><option value="customer">Customer</option><option value="ops">Ops</option></select></div>
+      <p class="mode"><span class="mode-dot" aria-hidden="true"></span><span id="mode">Recorded run</span></p>
+    </section>
+    <p id="notice" class="notice" role="status" hidden></p>
+    <nav class="tabs" aria-label="Demo view" role="tablist"><button id="customer-tab" type="button" role="tab" aria-selected="true" aria-controls="customer-panel">Customer</button><button id="ops-tab" type="button" role="tab" aria-selected="false" aria-controls="ops-panel" tabindex="-1">Ops</button></nav>
+    <section id="customer-panel" role="tabpanel" aria-labelledby="customer-tab">
+      <section id="recordings" class="recordings" aria-labelledby="recordings-title"><div><h3 id="recordings-title">Recorded runs</h3><p>Replay actual steps without starting a live conversation.</p></div><div id="recording-list" class="recording-list" aria-busy="true"><p>Loading recorded runs…</p></div><div class="playback"><span id="progress">Choose a recorded run</span><button id="next" type="button" class="secondary" disabled>Next</button><button id="play" type="button" class="secondary" disabled>Play</button></div></section>
+      <div class="workspace">
+        <section class="panel chat-panel" aria-labelledby="chat-title"><div class="panel-heading"><div><p class="eyebrow">Customer conversation</p><h3 id="chat-title">Support chat</h3></div><span id="chat-context" class="caption">Recorded run</span></div>
+          <div id="messages" class="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"><p id="chat-empty" class="empty">Pick a recorded run or start a live demo to follow a refund.</p></div>
+          <section id="refund-panel" class="refund-panel" aria-labelledby="refund-title" hidden><h4 id="refund-title">Current refund system status</h4><div id="refund-statuses" class="chip-list" aria-live="polite"></div></section>
+          <p id="turn-notice" class="turn-notice" role="status" hidden></p>
+          <form id="chat-form" class="composer"><label for="message">Your message</label><textarea id="message" dir="auto" rows="3" maxlength="1000" aria-describedby="input-help counter" disabled></textarea><div class="composer-footer"><span id="input-help" class="caption">Enter to send · Shift+Enter for a new line</span><span id="counter" class="caption">0 / 1,000</span><button id="send" type="submit" disabled>Send</button></div></form>
+        </section>
+        <details id="behind" class="panel behind" open><summary>Behind the scenes <span class="caption">System audit trail</span></summary><div class="cost"><span>Running model cost</span><strong id="total-cost">$0.000000</strong></div><p class="audit-help">The model requests tools. Policy and the refund system determine the outcome.</p><ol id="events" class="events" aria-label="Audit events" aria-live="polite"></ol><p id="events-empty" class="empty">System events appear as each step runs.</p></details>
+      </div>
+    </section>
+    <section id="ops-panel" role="tabpanel" aria-labelledby="ops-tab" hidden><div class="section-heading"><div><h3>Human review</h3><p>Review system facts before deciding. Model-written reasons are untrusted context.</p><p class="caption">Ops reviews your live sandbox. Recorded Ops actions replay in the Customer view.</p></div><button id="refresh-ops" class="secondary" type="button">Refresh queue</button></div><div id="decision-results" aria-live="polite"></div><div id="ops-queue"></div><section class="escalations" aria-labelledby="escalations-title"><h3 id="escalations-title">Escalations</h3><div id="escalations"></div></section></section>
+    <footer>Simulated roles are a demo convenience. The model has no approval path.</footer>
+  </main>
+  <noscript>This demo needs JavaScript to replay runs and show refund system status.</noscript>
+</body>
+</html>

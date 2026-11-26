@@ -1,0 +1,21 @@
+{
+  "id": "needs_approval_large-02",
+  "family": "needs_approval_large",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "طلب 1003 فيه مشكلة كبيرة. عايز أرجّع 450.00 كلهم لو سمحت."
+  ],
+  "expect": {
+    "decision": "needs_approval",
+    "refunds": {
+      "1003": {
+        "count": 1,
+        "status": "PENDING_APPROVAL"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "ar"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "auto_small-01",
+  "family": "auto_small",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "The item arrived damaged. Please refund 10.00 on order 1001."
+  ],
+  "expect": {
+    "decision": "auto",
+    "refunds": {
+      "1001": {
+        "count": 1,
+        "status": "SUCCEEDED"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

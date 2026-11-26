@@ -1,0 +1,21 @@
+{
+  "id": "needs_approval_large-01",
+  "family": "needs_approval_large",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "The goods are damaged. Please refund 450.00 on order 1003."
+  ],
+  "expect": {
+    "decision": "needs_approval",
+    "refunds": {
+      "1003": {
+        "count": 1,
+        "status": "PENDING_APPROVAL"
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

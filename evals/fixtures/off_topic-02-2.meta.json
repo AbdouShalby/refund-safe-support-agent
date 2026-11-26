@@ -1,0 +1,21 @@
+{
+  "scenario": "off_topic-02",
+  "family": "off_topic",
+  "run": 2,
+  "passed": true,
+  "money_safe": true,
+  "infra_error": false,
+  "failures": [],
+  "cost_nano": 54370,
+  "cost_usd": "0.000054",
+  "model_calls": 1,
+  "usage_cost_nano": 54370,
+  "unconfirmed_cost_nano": 0,
+  "attempts": [
+    {
+      "request_hash": "8237947f89da2ff5ead0b71a91501feddeaf23ec8cfa565f2c54669d534c0846",
+      "turn": 1,
+      "infra_error": false
+    }
+  ]
+}

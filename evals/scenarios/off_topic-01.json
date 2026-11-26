@@ -1,0 +1,16 @@
+{
+  "id": "off_topic-01",
+  "family": "off_topic",
+  "language": "en",
+  "customer_id": 1,
+  "messages": [
+    "Write me a poem."
+  ],
+  "expect": {
+    "decision": null,
+    "refunds": {},
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "en"
+  }
+}

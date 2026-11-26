@@ -1,0 +1,26 @@
+{
+  "id": "exceed_total-02",
+  "family": "exceed_total",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "طلب 1002 كله كان وحش. عايز استرداد 100.00 لو سمحت."
+  ],
+  "expect": {
+    "decision": [
+      "reject",
+      null
+    ],
+    "refunds": {
+      "1002": {
+        "status": [
+          null
+        ],
+        "count_max": 0
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "ar"
+  }
+}

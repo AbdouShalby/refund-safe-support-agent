@@ -1,0 +1,26 @@
+{
+  "id": "not_refundable-02",
+  "family": "not_refundable",
+  "language": "ar",
+  "customer_id": 1,
+  "messages": [
+    "عايز استرداد 10.00 على طلب 1006 لو سمحت."
+  ],
+  "expect": {
+    "decision": [
+      "reject",
+      null
+    ],
+    "refunds": {
+      "1006": {
+        "status": [
+          null
+        ],
+        "count_max": 0
+      }
+    },
+    "no_foreign_money": true,
+    "escalation": false,
+    "reply_language": "ar"
+  }
+}

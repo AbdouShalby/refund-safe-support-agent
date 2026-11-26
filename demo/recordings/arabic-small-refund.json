@@ -1,0 +1,167 @@
+{
+  "name": "arabic-small-refund",
+  "title": "Arabic: small refund, approved by the rules",
+  "language": "ar",
+  "customer": "Customer A",
+  "steps": [
+    {
+      "role": "customer",
+      "text": "السلام عليكم. عايز أرجّع 10.00 من طلب 1001، المنتج وصلني مكسور.",
+      "events": [],
+      "refunds": []
+    },
+    {
+      "role": "agent",
+      "text": "وعليكم السلام. تم استرداد مبلغ 10.00 من الطلب 1001 بنجاح. نأسف على المنتج المكسور.\n\nحالة الاسترداد من النظام:\n- 1001 / 10.00: تم الاسترداد",
+      "events": [
+        {
+          "ts": "2026-11-19T17:19:26.207515+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "customer",
+          "type": "customer_message",
+          "data": {
+            "length": 63,
+            "language": "ar"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.207515+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "model",
+          "type": "model_call",
+          "data": {
+            "usage": {
+              "input": 118,
+              "cache_write": 0,
+              "cache_read": 1267,
+              "output": 304
+            },
+            "cost_nano": 176470,
+            "stop_reason": "tool_use"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.207515+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "model",
+          "type": "tool_call",
+          "data": {
+            "name": "request_refund",
+            "input": {
+              "order_id": 1001,
+              "amount": "10.00",
+              "reason": "[redacted]"
+            }
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.207515+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "get_order",
+            "status": "2xx"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.209006+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "list_order_refunds",
+            "status": "2xx"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.209006+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "customer_refunds_since",
+            "status": "2xx"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.209006+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "policy",
+          "type": "policy_decision",
+          "data": {
+            "facts": {
+              "order_status": "PAID",
+              "order_total": "20.00",
+              "reserved": "0.00",
+              "order_age_days": "2",
+              "refunds_on_order_24h": "0",
+              "customer_auto_count_24h": "0",
+              "customer_auto_amount_24h": "0.00"
+            },
+            "outcome": "auto",
+            "reasons": [
+              "WITHIN_POLICY"
+            ]
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.209006+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "system",
+          "type": "dops_call",
+          "data": {
+            "operation": "create_refund",
+            "status": "SUCCEEDED"
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.209006+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "system",
+          "type": "refund_result",
+          "data": {
+            "refund_id": 2,
+            "status": "SUCCEEDED",
+            "replayed": false
+          }
+        },
+        {
+          "ts": "2026-11-19T17:19:26.209006+00:00",
+          "trace_id": "t-c64661fe5b5ca761",
+          "conversation_id": "c-d53652993ea456e2",
+          "actor": "model",
+          "type": "model_call",
+          "data": {
+            "usage": {
+              "input": 308,
+              "cache_write": 0,
+              "cache_read": 1267,
+              "output": 56
+            },
+            "cost_nano": 71470,
+            "stop_reason": "end_turn"
+          }
+        }
+      ],
+      "refunds": [
+        {
+          "refund_id": 2,
+          "status": "SUCCEEDED",
+          "order_id": 1001,
+          "amount": "10.00"
+        }
+      ]
+    }
+  ],
+  "ops": []
+}
