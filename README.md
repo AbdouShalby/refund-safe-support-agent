@@ -4,6 +4,12 @@ A customer-support agent that can request refunds, where code — not the model 
 
 Portfolio project · synthetic data
 
+## Demo video
+
+A 90-second walkthrough: the cast and the rule that the model only asks, a small refund the rules allow, a large refund held for a human, the false "refund done" reply the adversarial suite exposed, 17 scripted attacks, and the live evaluation results. Captions are in English and Arabic.
+
+https://github.com/user-attachments/assets/0ddcbb4e-7c53-4faf-8dd7-d8899a654679
+
 ## Live demo
 
 [Open the demo](https://refund-safe-support-agent.vercel.app): start with recorded runs, try a live conversation, then use the Ops tab to inspect held refunds and approve or reject them. The supplied deployment uses Vercel and Upstash Redis; its order system is an in-process mock, not the separate DOPS server. See the [web wiring](app/web.py), [demo state adapter](app/sandbox_dops.py) and [recordings](demo/recordings).
